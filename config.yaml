@@ -1,0 +1,5 @@
+reads1: "Short_1.fastq"
+reads2: "Short_2.fastq"
+ref: "ref_gen.fna"
+gff: "annot.gff"
+outdir: "results"
