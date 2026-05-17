@@ -1,10 +1,7 @@
 import os
 
-# Базовая директория с данными, если передана, иначе ""
 DATADIR = config.get("datadir", "")
 
-# Функция для сборки полного пути: если передан абсолютный путь, берём его,
-# иначе соединяем с DATADIR
 def data_path(relative_or_absolute):
     if os.path.isabs(relative_or_absolute):
         return relative_or_absolute
