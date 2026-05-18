@@ -1,0 +1,50 @@
+host: DESKTOP-C72EG58
+Building DAG of jobs...
+Unable to retrieve additional files from git. This is not a git repository.
+Uploading source archive to storage provider...
+Using var_pipe for Kubernetes jobs.
+Using shell: /usr/bin/bash
+Provided remote nodes: 4
+Job stats:
+job                count
+---------------  -------
+bwa_index              1
+fastp_trim             1
+gff_fix                1
+map_sort               1
+variant_calling        1
+all                    1
+total                  6
+
+Select jobs to execute...
+Execute 3 jobs...
+
+[Mon May 18 16:55:17 2026]
+rule bwa_index:
+    input: /home/omurillion/snakemake/ref_gen.fna (retrieve from storage)
+    output: /home/omurillion/snakemake/results/ref.amb (send to storage)
+    log: /home/omurillion/snakemake/results/logs/bwa_index.log (send to storage)
+    jobid: 4
+    reason: Missing output files: /home/omurillion/snakemake/results/ref.amb (in storage)
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=8096, mem=8.1 GB, mem_mib=7721, threads=4
+Get status with: kubectl describe job snakejob-5b868625-47de-5fc2-8bc0-e7bdb2d5abc0
+
+[Mon May 18 16:55:17 2026]
+rule gff_fix:
+    input: /home/omurillion/snakemake/annot.gff (retrieve from storage)
+    output: /home/omurillion/snakemake/results/fixed.gff (send to storage)
+    log: /home/omurillion/snakemake/results/logs/gff_fix.log (send to storage)
+    jobid: 2
+    reason: Missing output files: /home/omurillion/snakemake/results/fixed.gff (in storage)
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=8096, mem=8.1 GB, mem_mib=7721, threads=4
+Get status with: kubectl describe job snakejob-35585fce-3f5e-5983-b58f-95d9e2055976
+
+[Mon May 18 16:55:17 2026]
+rule fastp_trim:
+    input: /home/omurillion/snakemake/Short_1.fastq (retrieve from storage), /home/omurillion/snakemake/Short_2.fastq (retrieve from storage)
+    output: /home/omurillion/snakemake/results/trimmed_R1.fastq (send to storage), /home/omurillion/snakemake/results/trimmed_R2.fastq (send to storage), /home/omurillion/snakemake/results/fastp_report.html (send to storage), /home/omurillion/snakemake/results/fastp_report.json (send to storage)
+    log: /home/omurillion/snakemake/results/logs/fastp_trim.log (send to storage)
+    jobid: 1
+    reason: Missing output files: /home/omurillion/snakemake/results/trimmed_R1.fastq (in storage), /home/omurillion/snakemake/results/fastp_report.html (in storage), /home/omurillion/snakemake/results/fastp_report.json (in storage), /home/omurillion/snakemake/results/trimmed_R2.fastq (in storage)
+    resources: tmpdir=<TBD>, disk_mb=1000, disk=1 GB, disk_mib=954, mem_mb=8096, mem=8.1 GB, mem_mib=7721, threads=4
+Get status with: kubectl describe job snakejob-6efe0cf5-8fc2-50e5-b8c9-f065f4cf357a
